@@ -49,11 +49,9 @@ function clearForm()
 
     function publish(canvas)
     {
-     var pdf = new jsPDF();
-     console.log(pdf);
-     pdf.addImage(canvas, 'JPEG', 0, 0);
-     console.log(pdf);
-     window.open(pdf.output('bloburl')) ;
+	var pdf = new jsPDF();
+	pdf.addImage(canvas, 'JPEG', 0, 0);
+	window.open(pdf.output('bloburl')) ;
     }
 
 
