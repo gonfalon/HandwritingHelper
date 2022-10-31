@@ -1,15 +1,31 @@
-.print{font-family: 'print_dashed', sans-serif;
-	    font-size: 50px;}
-   .cursive{font-family: 'cursive_dashed', sans-serif;
-            font-size: 30px;}
-   body{background-color: grey;
-        text-align:center;}
-   table{text-align:left;
-         position:relative;
-         left:25%;}
-   td.main{text-align:right;}
+.print {
+      font-family: 'print_dashed', sans-serif;
+      font-size: 50px;
+}
 
-.return{font-family: 'print_dashed', sans-serif;
-	font-size: 30px;
- 	text-decoration: none;
-	color: black;}
+.cursive {
+      font-family: 'cursive_dashed', sans-serif;
+      font-size: 30px;
+}
+
+body {
+      background-color: grey;
+      text-align: center;
+}
+
+table {
+      text-align: left;
+      position: relative;
+      left: 25%;
+}
+
+td.main {
+      text-align: right;
+}
+
+.return {
+      font-family: 'print_dashed', sans-serif;
+      font-size: 30px;
+      text-decoration: none;
+      color: black;
+}
