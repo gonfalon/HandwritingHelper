@@ -8,15 +8,45 @@
       font-size: 30px;
 }
 
+.header {
+      font-size: 30px;
+}
+
+.footer {
+      margin-top: 20px;
+      float: right;
+      text-align: right;
+}
+
+.pintobottom {
+      position: absolute;
+      bottom: 20px;
+      right: 10px;
+}
+
 body {
-      background-color: grey;
       text-align: center;
 }
 
-table {
-      text-align: left;
-      position: relative;
-      left: 25%;
+.flexcontainer {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      flex-wrap: wrap;
+}
+
+.flex-child {
+      display: flex;
+      flex: 1;
+      margin: auto;
+}
+
+.flexcontainer canvas {
+      border: 2px solid black;
+      margin-top: 100px;
 }
 
 td.main {

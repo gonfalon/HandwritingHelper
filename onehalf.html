@@ -31,18 +31,19 @@
         document.getElementById("R" + i).value = "";
       }
 
-      refresh(document.getElementById('canvas'));
+      refresh();
     }
 
-    function publish(canvas) {
+    function publish() {
+      var canvas = document.getElementById('canvas');
       var pdf = new jsPDF();
       pdf.addImage(canvas, 'JPEG', 0, 0);
       window.open(pdf.output('bloburl'));
     }
 
-    function draw(canvas) {
-      refresh(canvas);
-
+    function draw() {
+      refresh();
+      var canvas = document.getElementById('canvas');
       var ctx = canvas.getContext("2d");
       var startPos = 50;
       ctx.fillStyle = '#000000';
@@ -124,7 +125,8 @@
     };
 
 
-    function refresh(canvas) {
+    function refresh() {
+      var canvas = document.getElementById('canvas');
       var ctx = canvas.getContext('2d');
       var startPos = 45;
       var endPos = startPos + 720;
@@ -220,81 +222,97 @@
 </head>
 
 <body>
-  <p class="print">Handwriting Worksheet Generator</p>
-  <a class="return" href="index.html">Return to Size Select</a><br><br>
-  <table>
-    <tr>
-      <td class="main"><label for="style">Style:</label></td>
-      <td><select id="style">
-          <option selected value="print">Print</option>
-          <option value="cursive">Cursive</option>
-        </select></td>
-    </tr>
-    <tr>
-      <td class="main"><label for="title">Title:</label></td>
-      <td><input type="text" id="title" size="20" /></td>
-    </tr>
-    <tr>
-      <td class="main"><label for="R1">Row 1:</label></td>
-      <td><input type="text" id="R1" maxlength="18" size="20" /></td>
-    </tr>
-    <tr>
-      <td class="main"><label for="R2">Row 2:</label></td>
-      <td><input type="text" id="R2" maxlength="18" size="20" /></td>
-    </tr>
-    <tr>
-      <td class="main"><label for="R3">Row 3:</label></td>
-      <td><input type="text" id="R3" maxlength="18" size="20" /></td>
-    </tr>
-    <tr>
-      <td class="main"><label for="R4">Row 4:</label></td>
-      <td><input type="text" id="R4" maxlength="18" size="20" /></td>
-    </tr>
-    <tr>
-      <td class="main"><label for="R5">Row 5:</label></td>
-      <td><input type="text" id="R5" maxlength="18" size="20" /></td>
-    </tr>
-    <tr>
-      <td class="main"><label for="R6">Row 6:</label></td>
-      <td><input type="text" id="R6" maxlength="18" size="20" /></td>
-    </tr>
-    <tr>
-      <td class="main"><label for="R7">Row 7:</label></td>
-      <td><input type="text" id="R7" maxlength="18" size="20" /></td>
-    </tr>
-    <tr>
-      <td class="main"><label for="R8">Row 8:</label></td>
-      <td><input type="text" id="R8" maxlength="18" size="20" /></td>
-    </tr>
-    <td class="main"><label for="R9">Row 9:</label></td>
-    <td><input type="text" id="R9" maxlength="18" size="20" /></td>
-    </tr>
-    <td class="main"><label for="R10">Row 10:</label></td>
-    <td><input type="text" id="R10" maxlength="18" size="20" /></td>
-    </tr>
-    <td class="main"><label for="R11">Row 11:</label></td>
-    <td><input type="text" id="R11" maxlength="18" size="20" /></td>
-    </tr>
-    <td class="main"><label for="R12">Row 12:</label></td>
-    <td><input type="text" id="R12" maxlength="18" size="20" /></td>
-    </tr>
-    <tr>
-      <td><button type="button" onclick="draw(document.getElementById('canvas'));">Generate Preview</button></td>
-      <td><button type="button" onclick="clearForm();">Clear Form</button>
-        <button type="button" onclick="publish(document.getElementById('canvas'));">Generate PDF</button>
-      </td>
-    </tr>
-  </table>
-  <p>Preview</p>
-  <canvas id="canvas" width="816" height="1056">This browser is either out of date or does not support HTML5. Please
-    upgrade your browser.</canvas>
+  <div class="header">
+    <p class="print">Handwriting Worksheet Generator</p>
+    <a class="return" href="index.html">Return to Size Select</a><br>
+  </div>
+  <div class="flexcontainer">
+    <div id="form" class="flex-child">
+      <table>
+        <tr>
+          <td class="main"><label for="style">Style:</label></td>
+          <td><select id="style">
+              <option selected value="print">Print</option>
+              <option value="cursive">Cursive</option>
+            </select></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="title">Title:</label></td>
+          <td><input type="text" id="title" size="20" value="Title"/></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="R1">Row 1:</label></td>
+          <td><input type="text" id="R1" maxlength="18" size="20" /></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="R2">Row 2:</label></td>
+          <td><input type="text" id="R2" maxlength="18" size="20" /></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="R3">Row 3:</label></td>
+          <td><input type="text" id="R3" maxlength="18" size="20" /></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="R4">Row 4:</label></td>
+          <td><input type="text" id="R4" maxlength="18" size="20" /></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="R5">Row 5:</label></td>
+          <td><input type="text" id="R5" maxlength="18" size="20" /></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="R6">Row 6:</label></td>
+          <td><input type="text" id="R6" maxlength="18" size="20" /></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="R7">Row 7:</label></td>
+          <td><input type="text" id="R7" maxlength="18" size="20" /></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="R8">Row 8:</label></td>
+          <td><input type="text" id="R8" maxlength="18" size="20" /></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="R9">Row 9:</label></td>
+          <td><input type="text" id="R9" maxlength="18" size="20" /></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="R10">Row 10:</label></td>
+          <td><input type="text" id="R10" maxlength="18" size="20" /></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="R11">Row 11:</label></td>
+          <td><input type="text" id="R11" maxlength="18" size="20" /></td>
+        </tr>
+        <tr>
+          <td class="main"><label for="R12">Row 12:</label></td>
+          <td><input type="text" id="R12" maxlength="18" size="20" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button type="button" onclick="clearForm();">Clear Form</button>
+          <button type="button" onclick="publish();">Generate PDF</button></td>
+        </tr>
+      </table>
+    </div>
+    <div id="preview" class="flex-child">
+      <canvas id="canvas" width="816" height="1056">This browser is either out of date or does not support HTML5. Please
+        upgrade your browser.</canvas>
+    </div>
+  </div>
+  <div class="footer">
+    Version 22.10.31<br>&copy; 2022 Ben Dunphy<br>This project arose out of a homeshcooling mom's tapping into her son's programming skills.
+  </div>
+  <!--Initial empty draw of the preview-->
   <script type="text/javascript">
-    refresh(document.getElementById('canvas'));
+    draw();
+    var inputs = document.querySelectorAll("input, select");
+    inputs.forEach(input => {
+      input.addEventListener("input", draw);
+      input.addEventListener("change", draw);
+    });
   </script><noscript>JavaScript is required to run this. Please turn it on if it is off, or upgrade your
-    browser.</noscript><br>
-
-  <p class="cursive">Version 1&nbsp;.&nbsp;2&nbsp;.&nbsp;0<br> &copy; 2015 Ben Dunphy<br>This Project arose out of a
-    homeshcooling mom's tapping into her son's programming skills.</p>
+    browser.</noscript>
 </body>
 
 </html>
